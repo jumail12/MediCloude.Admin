@@ -4,6 +4,13 @@ import { Toaster } from "sonner";
 import Login from "./pages/auth/Login";
 import Sidebar from "./components/Sidebar";
 import VerificationRequests from "./pages/VerificationRequests";
+import NotFoundPage from "./components/NotFoundPage";
+import GetAllPatients from "./pages/GetAllPatients";
+import PatientById from "./pages/PatientById";
+import GetAllDrs from "./pages/GetAllDrs";
+import DrById from "./pages/DrById";
+import AdminDashBoard from "./pages/AdminDashBoard";
+
 function App() {
   const location = useLocation();
   const isAuthPage = location.pathname.startsWith("/auth");
@@ -25,6 +32,13 @@ function App() {
         }}
       >
         <Routes>
+          <Route path="/" element={<AdminDashBoard/>}/>
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/patients" element={<GetAllPatients />} />
+          <Route path="/patients/:pid" element={<PatientById />} />
+          <Route path="/doctors" element={<GetAllDrs />} />
+          <Route  path="/doctors/:drid" element={<DrById/>}/>
+
           <Route path="/auth">
             <Route path="login" element={<Login />} />
           </Route>

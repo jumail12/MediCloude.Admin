@@ -1,7 +1,7 @@
 import React from "react";
 import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Divider, Box, Button, useMediaQuery, CardMedia } from "@mui/material";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { People, LocalHospital, FormatListBulleted, AttachMoney, ReceiptLong, Logout } from "@mui/icons-material";
+import { People, LocalHospital, AttachMoney, ReceiptLong, Logout } from "@mui/icons-material";
 import logo from "../assets/images/icon.png";
 
 const Sidebar: React.FC = () => {
@@ -41,10 +41,9 @@ localStorage.clear();
         <Divider sx={{ backgroundColor: "#ffffff" }} />
         <List sx={{ mt: 2, pl: isSmallScreen ? 0 : 4 }}>
           {[  
-            { text: "Patients", icon: <People />, route: "/users" },
-            { text: "Doctors", icon: <LocalHospital />, route: "/agents" },
-            { text: "Appoiments", icon: <FormatListBulleted />, route: "/listings" },
-            { text: "Sales", icon: <AttachMoney />, route: "/sold-properties" },
+            { text: "DashBoard", icon: <AttachMoney />, route: "/" },
+            { text: "Patients", icon: <People />, route: "/patients" },
+            { text: "Doctors", icon: <LocalHospital />, route: "/doctors" },
             { text: "Requests", icon: <ReceiptLong />, route: "/requests" },
           ].map((item, index) => (
             <ListItem key={index} disablePadding>

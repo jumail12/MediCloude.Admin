@@ -42,7 +42,7 @@ const createAxiosInstance = (baseURL:any) => {
         if (!isRefreshing) {
           isRefreshing = true;
           try {
-            const res = await instance.post(
+            const res = await authAxios.post(
               `/AdminAuth/refresh-token`,{
                 rtoken:refreshToken
               }
